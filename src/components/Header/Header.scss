@@ -1,0 +1,137 @@
+@import '../GlobalStyle/GlobalStyle.scss';
+
+header {
+  max-height: 100px;
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 20px;
+    font-family: $font-lato;
+    .header-content {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      li {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+        .item {
+          padding-right: 56px;
+          text-decoration: none;
+          color: $color-black;
+        }
+        .active {
+          color: $color-orange;
+          text-decoration: underline;
+        }
+        .item-last {
+          text-decoration: none;
+        }
+      }
+      .header-button {
+        background: $color-orange;
+        color: $color-white;
+        line-height: 14px;
+        font-size: 14px;
+        padding: 14px 19px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        margin-left: 400px;
+      }
+      .button-signout {
+        position: absolute;
+        top: 75px;
+        right: 210px;
+        background: $color-orange;
+        padding: 14px 19px;
+        border: none;
+        color: $color-white;
+        border-radius: 5px;
+        z-index: 1;
+        cursor: pointer;
+      }
+    }
+    #toggle {
+      display: none;
+    }
+    .button-toggle {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  header {
+    .navbar {
+      .header-content {
+        .header-button {
+          margin-left: 250px;
+        }
+        .button-signout {
+          right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    .navbar {
+      .button-toggle {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 28px;
+        padding: 5px 10px;
+        background: $color-white;
+        border-radius: 10px;
+        border: none;
+        &:hover {
+          background: $color-orange;
+        }
+      }
+      .header-content {
+        display: none;
+        li {
+          .item {
+            padding: 0;
+          }
+        }
+      }
+      #toggle:checked ~ .header-content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: $color-content;
+        font-size: 20px;
+        box-shadow: 0px 8px 16px 0px $color-shadow;
+        z-index: 1;
+        top: 92px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        line-height: 50px;
+        li {
+          font-size: 25px;
+        }
+        .header-button {
+          margin: 15px 0;
+          font-size: 25px;
+          padding: 20px 20px;
+        }
+        .button-signout {
+          top: 20px;
+          right: 20px;
+        }
+      }
+    }
+  }
+}
